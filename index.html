@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        #message {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(0);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            max-width: 600px;
+            text-align: center;
+        }
+        .highlight {
+            color: #ff4081;
+            font-weight: bold;
+        }
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">
+        <h1>🎉 Happy Birthday, Ephy! 🎉</h1>
+        <p>You are my life. You are my strength. You make me believe in me. I promise to always love you and shower you with joy and care. Happy Birthday, my angel. May you have a magical day.</p>
+        <p>The best sight in the world is to look at you smile. I hope what I've got planned for your birthday brings many smiles to your face that last a lifetime! Happy Birthday, sweetheart.</p>
+        <p class="highlight">People say that to fall in love is easy, but to be in it is difficult. For me, to fall in love and to be in it both is easy only because you are the love of my life. You iron out the most difficult problems and hurdles from my life. Happy Birthday, sweetheart.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const name = "Ephy";
+            document.getElementById('message').querySelector('h1').innerHTML = `🎉 Happy Birthday, ${name}! 🎉`;
+
+            // Animation effect for the message
+            const message = document.getElementById('message');
+            setTimeout(() => {
+                message.style.transform = 'scale(1)';
+                message.style.opacity = '1';
+            }, 100); // Start animation slightly after page load
+            
+            // Fireworks animation
+            function createFirework() {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.transform = `translate(${Math.random() * 100}vw, ${Math.random() * 100}vh)`;
+                document.body.appendChild(firework);
+                
+                // Animation
+                setTimeout(() => {
+                    firework.style.opacity = '1';
+                    firework.style.transform = `translate(${Math.random() * 100}vw, ${Math.random() * 100}vh) scale(1.5)`;
+                }, 100);
+                setTimeout(() => firework.remove(), 1000);
+            }
+            setInterval(createFirework, 200);
+        });
+    </script>
+</body>
+</html>
